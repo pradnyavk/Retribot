@@ -6,6 +6,22 @@
 require('dotenv').config();
 // Import the discord.js module
 const Discord = require('discord.js');
+
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host:process.env.HOST,
+  port:process.env.PORT,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE
+});
+
+connection.connect(function(err){
+  if(err) throw err;
+  console.log("Connected!");
+});
+
+
 // Create an instance of a Discord client
 const client = new Discord.Client({
   //to react to messages that were present before the bot logged in
