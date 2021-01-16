@@ -1,9 +1,7 @@
 require('dotenv').config();
 // Import the discord.js module
 const Discord = require('discord.js');
-//constants for giving the bot commands
-const BOT_PREFIX = "!";
-const MOD_ME_COMMAND = "mod-me";
+const sequelize = require('./sequelize.js');
 
 const client = new Discord.Client({
     //to react to messages that were present before the bot logged in
@@ -24,8 +22,7 @@ exports.sayHi = function() {
             //message.reply('Hey');
         }
         if(message.content === '1'){
-            message.channel.send('Enter the date, start time and end time of the meeting');
-            message.content
+            message.channel.send('Enter meeting name and date');        
         }
     });
 }
